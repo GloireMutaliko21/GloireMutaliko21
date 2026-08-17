@@ -125,12 +125,6 @@ should do.
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/metrics/metrics-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/metrics/metrics.svg">
-  <img alt="GitHub metrics panel: activity, community stats, repositories, and overall issue and pull request status" src="assets/metrics/metrics.svg" width="500">
-</picture>
-
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=GloireMutaliko21&theme=github_dark">
   <img alt="GitHub profile summary for GloireMutaliko21: stars, commits, pull requests and contributions" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=GloireMutaliko21&theme=github">
 </picture>
