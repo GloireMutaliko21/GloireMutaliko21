@@ -1,0 +1,47 @@
+name: Snake Contribution Graph
+
+# Generates the two contribution-snake SVGs and publishes them to the orphan
+# `output` branch, which README.md reads over raw.githubusercontent.com. Keeping
+# them off `main` keeps regenerated binaries out of this branch's history.
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Every day at midnight UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/snake.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snake
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    name: Generate and publish snake animation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # Pinned to a release tag rather than @master: an unpinned default branch
+      # means an unreviewed upstream change runs against this repository's write
+      # token the moment it is merged.
+      - name: Generate snake animation
+        uses: Platane/snk@v3
+        id: snake
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Publish to the output branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: dist
+          commit_message: "chore: update snake animation [skip ci]"
