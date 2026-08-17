@@ -37,13 +37,18 @@ permissions:
 
 concurrency:
   group: metrics
-  cancel-in-progress: true
+  # Deliberately false, unlike the snake job: a manual re-dispatch (say, after a
+  # GitHub 503) should queue behind the running render, not kill it. Two renders
+  # take long enough that cancelling one wastes real time.
+  cancel-in-progress: false
 
 jobs:
   metrics:
     name: Render metrics panel
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Two renders, and the action is at the mercy of GitHub API latency: a single
+    # render took 3 minutes on a good day and blew past 15 during an incident.
+    timeout-minutes: 30
 
     steps:
       # `secrets` is not available in a job-level `if`, so the gate lives in a
