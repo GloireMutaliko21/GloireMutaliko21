@@ -12,8 +12,8 @@ Kigali, Rwanda (CAT, UTC+2) · Working in French and English
 
 [Website](https://gloire-mutaliko.vercel.app/) ·
 [Email](mailto:mufunyig@gmail.com) ·
-[X](https://x.com/GloireMutaliko)
-<!-- Add LinkedIn here: · [LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE/) -->
+[X](https://x.com/GloireMutaliko) ·
+[LinkedIn](https://www.linkedin.com/in/gloire-mutaliko-2b6733211/)
 
 <img alt="Profile visitors" src="https://visitor-badge.laobi.icu/badge?page_id=GloireMutaliko21">
 
@@ -157,6 +157,7 @@ should do.
 | --- | --- |
 | 🌐 [gloire-mutaliko.vercel.app](https://gloire-mutaliko.vercel.app/) | Portfolio, selected projects, longer background |
 | 📧 [mufunyig@gmail.com](mailto:mufunyig@gmail.com) | Project enquiries and anything needing a written reply |
+| 💼 [LinkedIn](https://www.linkedin.com/in/gloire-mutaliko-2b6733211/) | Roles, introductions, hiring conversations |
 | 🐦 [@GloireMutaliko](https://x.com/GloireMutaliko) | Short updates on what I am building |
 | 💬 [Issues & PRs](https://github.com/GloireMutaliko21?tab=repositories) | Questions about the code itself |
 | 📍 Kigali, Rwanda | CAT (UTC+2) — comfortable across European and African hours |
