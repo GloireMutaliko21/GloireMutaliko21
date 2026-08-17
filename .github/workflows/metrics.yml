@@ -16,6 +16,16 @@ name: GitHub Metrics
 #
 # The panel is deliberately complementary to the summary cards already in the
 # README: no languages plugin here, because the two language donuts cover it.
+#
+# Two renders, one per colour scheme, selected by a <picture> element in the
+# README. metrics has no config_theme input — the classic template is light-only
+# — so the dark variant is produced by overriding its palette with extras_css.
+# The base rules being overridden are svg{color:#777}, h1,h2,h3{color:#0366d6},
+# .field svg{fill:#959da5}, footer{color:#666} and the calendar :root variables.
+#
+# plugin_isocalendar is deliberately absent: it failed with "Unexpected error"
+# on this account, and it duplicates both GitHub's own contribution graph and
+# the snake animation directly above it in the README.
 
 on:
   schedule:
@@ -52,7 +62,7 @@ jobs:
 
       # Pinned to a release tag rather than @latest, which is a moving pointer:
       # a breaking upstream change would otherwise land unannounced.
-      - name: Generate metrics
+      - name: Generate metrics (light)
         if: steps.gate.outputs.configured == 'true'
         uses: lowlighter/metrics@v3.34
         with:
@@ -60,11 +70,37 @@ jobs:
           user: ${{ github.repository_owner }}
           filename: assets/metrics/metrics.svg
           committer_branch: ${{ github.event.repository.default_branch }}
-          committer_message: "chore: update metrics panel [skip ci]"
+          committer_message: "chore: update metrics panel (light) [skip ci]"
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Africa/Kigali
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
           plugin_followup: yes
           plugin_followup_sections: repositories
+
+      - name: Generate metrics (dark)
+        if: steps.gate.outputs.configured == 'true'
+        uses: lowlighter/metrics@v3.34
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ github.repository_owner }}
+          filename: assets/metrics/metrics-dark.svg
+          committer_branch: ${{ github.event.repository.default_branch }}
+          committer_message: "chore: update metrics panel (dark) [skip ci]"
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Africa/Kigali
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          extras_css: |
+            svg { background: #0d1117; color: #8b949e; }
+            h1, h2, h3 { color: #58a6ff; }
+            .field svg { fill: #8b949e; }
+            footer { color: #6e7681; }
+            :root {
+              --color-calendar-graph-day-bg: #161b22;
+              --color-calendar-graph-day-border: rgba(255, 255, 255, 0.05);
+              --color-calendar-graph-day-L1-bg: #0e4429;
+              --color-calendar-graph-day-L2-bg: #006d32;
+              --color-calendar-graph-day-L3-bg: #26a641;
+              --color-calendar-graph-day-L4-bg: #39d353;
+            }
