@@ -101,11 +101,13 @@ jobs:
             h1, h2, h3 { color: #58a6ff; }
             .field svg { fill: #8b949e; }
             footer { color: #6e7681; }
-            :root {
-              --color-calendar-graph-day-bg: #161b22;
-              --color-calendar-graph-day-border: rgba(255, 255, 255, 0.05);
-              --color-calendar-graph-day-L1-bg: #0e4429;
-              --color-calendar-graph-day-L2-bg: #006d32;
-              --color-calendar-graph-day-L3-bg: #26a641;
-              --color-calendar-graph-day-L4-bg: #39d353;
-            }
+            /* The calendar squares carry a hardcoded fill attribute, not a CSS
+               variable — overriding :root does nothing. A CSS property beats a
+               presentation attribute, so remap GitHub's light scale to its dark
+               one square by square. */
+            .day[fill="#ebedf0"] { fill: #161b22; }
+            .day[fill="#9be9a8"] { fill: #0e4429; }
+            .day[fill="#40c463"] { fill: #006d32; }
+            .day[fill="#30a14e"] { fill: #26a641; }
+            .day[fill="#216e39"] { fill: #39d353; }
+            .calendar .day { outline-color: rgba(255, 255, 255, 0.05); }

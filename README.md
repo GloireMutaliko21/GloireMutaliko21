@@ -124,10 +124,11 @@ should do.
 
 <div align="center">
 
-<!-- Metrics panel — uncomment once METRICS_TOKEN is set and .github/workflows/metrics.yml
-     has run once, otherwise this renders as a broken image:
-<img alt="GitHub metrics panel: activity, community and repository statistics" src="assets/metrics/metrics.svg" width="100%">
--->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/metrics/metrics-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/metrics/metrics.svg">
+  <img alt="GitHub metrics panel: activity, community stats, repositories, and overall issue and pull request status" src="assets/metrics/metrics.svg" width="500">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=GloireMutaliko21&theme=github_dark">
