@@ -139,11 +139,6 @@ should do.
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=GloireMutaliko21&hide_border=true&theme=github-compact">
-  <img alt="Contribution activity over the past year" src="https://github-readme-activity-graph.vercel.app/graph?username=GloireMutaliko21&hide_border=true&theme=github-light">
-</picture>
-
-<picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/GloireMutaliko21/GloireMutaliko21/output/github-contribution-grid-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/GloireMutaliko21/GloireMutaliko21/output/github-contribution-grid-snake.svg">
   <img alt="Snake animation traversing the GitHub contribution graph" src="https://raw.githubusercontent.com/GloireMutaliko21/GloireMutaliko21/output/github-contribution-grid-snake.svg">
