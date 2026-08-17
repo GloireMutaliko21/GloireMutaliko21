@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="1000" height="230" role="img" aria-label="Gloire Mutaliko — Full-stack engineer, TypeScript, Next.js, NestJS, Flutter. Kigali, Rwanda.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="1000" height="230" role="img" aria-label="Gloire Mutaliko — Full-stack engineer, TypeScript, Next.js, NestJS and PostgreSQL. Kigali, Rwanda.">
   <title>Gloire Mutaliko — full-stack engineer</title>
-  <desc>Profile banner: name, the tagline "Full-stack engineer · TypeScript · Next.js · NestJS · Flutter", open-source contributor at ever-co, and Kigali, Rwanda (CAT, UTC+2).</desc>
+  <desc>Profile banner: name, the tagline "Full-stack engineer · TypeScript · Next.js · NestJS · PostgreSQL", open-source contributor at ever-co, and Kigali, Rwanda (CAT, UTC+2).</desc>
   <defs>
     <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0969da"/>
@@ -23,7 +23,7 @@
 
   <g font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif">
     <text x="70" y="86" font-size="40" font-weight="700" fill="#1f2328" letter-spacing="-0.6">Gloire Mutaliko</text>
-    <text x="70" y="120" font-size="17.5"><tspan font-weight="600" fill="#0969da">Full-stack engineer</tspan><tspan dx="12" fill="#59636e">· TypeScript · Next.js · NestJS · Flutter</tspan></text>
+    <text x="70" y="120" font-size="17.5"><tspan font-weight="600" fill="#0969da">Full-stack engineer</tspan><tspan dx="12" fill="#59636e">· TypeScript · Next.js · NestJS · PostgreSQL</tspan></text>
     <text x="70" y="152" font-size="15" fill="#59636e">Open-source contributor at @ever-co — Gauzy ERP/CRM/HRM &amp; Ever Teams</text>
     <text x="70" y="178" font-size="14" fill="#818b98">Kigali, Rwanda · CAT (UTC+2) · Building multi-tenant SaaS, end to end</text>
   </g>

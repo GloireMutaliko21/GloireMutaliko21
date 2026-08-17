@@ -1,0 +1,70 @@
+name: GitHub Metrics
+
+# Renders a lowlighter/metrics panel into assets/metrics/metrics.svg, which
+# README.md then displays.
+#
+# SETUP (one-off, and it cannot be done from CI):
+#   1. Create a classic personal access token with only the `public_repo`
+#      scope — https://github.com/settings/tokens. The built-in GITHUB_TOKEN
+#      cannot read the account-wide data this action aggregates.
+#   2. Store it as the repository secret METRICS_TOKEN:
+#        gh secret set METRICS_TOKEN --repo GloireMutaliko21/GloireMutaliko21
+#   3. Run the workflow once: gh workflow run metrics.yml
+#
+# Until that secret exists every step is skipped and the run passes as a no-op,
+# so an unconfigured profile never shows a red X on the Actions tab.
+#
+# The panel is deliberately complementary to the summary cards already in the
+# README: no languages plugin here, because the two language donuts cover it.
+
+on:
+  schedule:
+    - cron: "30 0 * * *" # Every day at 00:30 UTC, after the snake job
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  metrics:
+    name: Render metrics panel
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # `secrets` is not available in a job-level `if`, so the gate lives in a
+      # step that exports a boolean the later step reads.
+      - name: Check for METRICS_TOKEN
+        id: gate
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          if [ -n "$METRICS_TOKEN" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::METRICS_TOKEN is not set — skipping. See the setup steps at the top of this workflow."
+          fi
+
+      # Pinned to a release tag rather than @latest, which is a moving pointer:
+      # a breaking upstream change would otherwise land unannounced.
+      - name: Generate metrics
+        if: steps.gate.outputs.configured == 'true'
+        uses: lowlighter/metrics@v3.34
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ github.repository_owner }}
+          filename: assets/metrics/metrics.svg
+          committer_branch: ${{ github.event.repository.default_branch }}
+          committer_message: "chore: update metrics panel [skip ci]"
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Africa/Kigali
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_followup: yes
+          plugin_followup_sections: repositories

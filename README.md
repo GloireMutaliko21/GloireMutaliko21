@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner/profile-banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/banner/profile-banner-light.svg">
-  <img alt="Gloire Mutaliko — Full-stack engineer working in TypeScript, Next.js, NestJS and Flutter. Open-source contributor at ever-co. Kigali, Rwanda." src="assets/banner/profile-banner-light.svg" width="100%">
+  <img alt="Gloire Mutaliko — Full-stack engineer working in TypeScript, Next.js, NestJS and PostgreSQL. Open-source contributor at ever-co. Kigali, Rwanda." src="assets/banner/profile-banner-light.svg" width="100%">
 </picture>
 
 **Full-stack engineer** · **TypeScript · Next.js · NestJS** · **Open source at [@ever-co](https://github.com/ever-co)**
@@ -28,9 +28,9 @@ under them — and I ship them as things you can open and read, not as claims.
 
 Most of my work lives in the TypeScript ecosystem: **Next.js** on the product
 side, **NestJS** and **Express** behind it, **PostgreSQL** and **Supabase**
-underneath, **Flutter** when the product needs to be in someone's hand. Day to
-day that means multi-tenant SaaS in `pnpm` + **Turborepo** monorepos, and
-open-source work on business platforms that thousands of teams actually run.
+underneath. Day to day that means multi-tenant SaaS in `pnpm` + **Turborepo**
+monorepos, and open-source work on business platforms that thousands of teams
+actually run.
 
 I also carry the parts most job titles leave out: scoping with the client,
 cutting the backlog, deciding what does **not** get built this month.
@@ -43,7 +43,7 @@ cutting the backlog, deciding what does **not** get built this month.
 | 🔌 **Gauzy × Plane integration** | Building out the [ever-gauzy-plugins-plane](https://github.com/ever-co/ever-gauzy-plugins-plane) bridge: work items, cycles, modules, filtering |
 | 🏢 **Ever Gauzy** | Feature and fix work on an open-source ERP/CRM/HRM platform used in production |
 | 👥 **Ever Teams** | API and front-end work on the open work & productivity platform |
-| 📱 **Flutter side of things** | Mobile clients for the systems above, where a web app is not enough |
+| 🧱 **Monorepo foundations** | pnpm workspaces, Turborepo pipelines and shared config — the layer that keeps five products shippable by a small team |
 | 🧪 **NestJS foundations** | Auth, multi-ORM data access, and the boring plumbing that decides how fast year two goes |
 
 ## Open source
@@ -65,10 +65,10 @@ can verify on GitHub.
 
 | | |
 | --- | --- |
-| Frameworks | Next.js (App Router), React, Flutter |
+| Frameworks | Next.js (App Router), React |
 | UI & styling | Tailwind CSS, shadcn/ui, Ant Design, Syncfusion, Figma hand-off |
 | State & data | React Query, Redux Toolkit, Context API, Server Actions |
-| Languages | TypeScript, JavaScript, Dart |
+| Languages | TypeScript, JavaScript |
 
 ### ⚙️ Backend & APIs
 
@@ -123,6 +123,11 @@ should do.
 ## GitHub activity
 
 <div align="center">
+
+<!-- Metrics panel — uncomment once METRICS_TOKEN is set and .github/workflows/metrics.yml
+     has run once, otherwise this renders as a broken image:
+<img alt="GitHub metrics panel: activity, community and repository statistics" src="assets/metrics/metrics.svg" width="100%">
+-->
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=GloireMutaliko21&theme=github_dark">
